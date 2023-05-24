@@ -1,56 +1,37 @@
 #include <iostream>
 
-using namespace std;
+void findMinMax(int* arr, int size, int& minValue, int& maxValue) {
+    minValue = arr[0];
+    maxValue = arr[0];
 
-int main()
-{
-    int size, add = 0;
-    cout << "Enter the size: ";
-    cin >> size;
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > maxValue) {
+            maxValue = arr[i];
+        }
+
+        if (arr[i] < minValue) {
+            minValue = arr[i];
+        }
+    }
+}
+
+int main() {
+    int size;
+    std::cout << "Enter the size: ";
+    std::cin >> size;
 
     int* arr = new int[size]; // Dynamically allocate the array
 
-    cout << "Enter the numbers: ";
-    for (int i = 0; i < size; i++)
-    {
-        cin >> arr[i];
+    std::cout << "Enter the numbers: ";
+    for (int i = 0; i < size; i++) {
+        std::cin >> arr[i];
     }
 
-    char operation;
-    cout << "Enter the operation (+, -, average = a): ";
-    cin >> operation;
+    int minValue, maxValue;
+    findMinMax(arr, size, minValue, maxValue);
 
-    switch (operation)
-    {
-        case '+':
-            for (int i = 0; i < size; i++)
-            {
-                add += arr[i];
-            }
-            cout << "The addition of the numbers is: " << add;
-            break;
-
-        case '-':
-            add = arr[0];
-            for (int i = 1; i < size; i++)
-            {
-                add -= arr[i];
-            }
-            cout << "The subtraction of the numbers is: " << add;
-            break;
-
-        case 'a':
-            for (int i = 0; i < size; i++)
-            {
-                add += arr[i];
-            }
-            cout << "The average of the numbers is: " << add / size;
-            break;
-
-        default:
-            cout << "Invalid operation";
-            break;
-    }
+    std::cout << "Maximum value: " << maxValue << std::endl;
+    std::cout << "Minimum value: " << minValue << std::endl;
 
     delete[] arr; // Free the dynamically allocated memory
 
