@@ -3,26 +3,44 @@
 using namespace std;
 int main()
 {
- int array[2][3];
- for(int i=0;i<2;i++)
+    int size,siz,si;
+ int array[size][siz][si];
+ cout<<" enter size:";
+ cin>>size;
+ cout<<" enter size:";
+ cin>>siz;
+ cout<<" enter size:";
+ cin>>si;
+
+ for(int i=0;i<size;i++)
  {
-    for(int j=0;j<3;j++){
+    for(int j=0;j<siz;j++)
+        {
+            for(int k=0;k<si;k++)
+        {
+
+
         cout<<"enter the numbers:";
-            cin>>array[i][j];
-    }
-
-    }
-    int sum=0;
-
-        for(int i=0;i<2;i++)
- {
-    for(int j=0;j<3;j++)
+            cin>>array[i][j][k];
+        }
+        }
+ }
+ int sum=0;
+for(int i=0;i<size;i++)
+{
+    for(int j=0;j<siz;j++)
     {
-        sum+=array[i][j];
-    }}
-    cout<<"sum of elements :"<<sum<<endl;
-    cout<<endl;
+        for(int k=0;k<si;k++)
+        {
+            sum+=array[i][j][k];
 
+
+
+    }
+}
+}
+
+        cout<<"the sum of the array is "<<sum;
 
 
 
